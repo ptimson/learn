@@ -50,7 +50,7 @@ Add .htaccess file to your domain folder `/Users/username/websites/mydomain`
 # .htaccess
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteCond $1 !^(index\.php|robots\.txt|assets|css|js)
+  RewriteCond $1 !^(index\.php|robots\.txt|favicon\.ico|assets|css|js)
   RewriteRule ^(.*)$ /index.php/$1 [L]
 </IfModule>
 ```
@@ -67,6 +67,13 @@ LoadModule php5_module libexec/apache2/libphp5.so
 
 # Restart Apache
 sudo apachectl restart
+```
+
+## Setting up a custom 404 page
+Append the following to your .htaccess after `</IfModule>` on a new line
+
+```sh
+ErrorDocument 404 /views/404.php
 ```
 
 ## Typical Structure
