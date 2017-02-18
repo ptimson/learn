@@ -1,4 +1,5 @@
 <?php
+include 'lib/functions.php';
 
 // Routing
 $routes = array(

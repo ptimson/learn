@@ -1,18 +1,4 @@
-<?php
-$title = 'Timson Dev';
-$titles = array('/about' => 'About');
-foreach ($titles as $path => $page_name) {
-  if ($_SERVER[PATH_INFO] == $path) {
-    $title = $title . ' | ' . $page_name;
-  }
-}
-
-$menu = array(
-  '/'      => 'Home',
-  '/about' => 'About'
-);
-
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -23,7 +9,7 @@ $menu = array(
     <meta name="author" content="">
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
 
-    <title><?php echo $title; ?></title>
+    <title><?php echo get_title(); ?></title>
 
     <!-- Bootstrap core CSS -->
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -60,10 +46,7 @@ $menu = array(
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <?php foreach ($menu as $path => $name): ?>
-              <?php $active_class = $_SERVER[PATH_INFO] == $path ? 'active' : ''; ?>
-              <li class="<?php echo $active_class ?>"><a href="<?php echo $path ?>"><?php echo $name ?></a></li>
-            <?php endforeach; ?>
+            <?php echo get_menu(); ?>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
